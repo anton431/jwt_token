@@ -8,7 +8,7 @@ import jwt
 class Person(models.Model):
     login = models.CharField('Логин', max_length=17, unique=True)
     date_up = models.DateField('Дата повышения', blank=True)
-    salary = models.IntegerField('Зарплата, $', max_length=17, blank=True)
+    salary = models.IntegerField('Зарплата, $ год', max_length=17, blank=True)
 
     class Meta:
         verbose_name = 'Работник'
