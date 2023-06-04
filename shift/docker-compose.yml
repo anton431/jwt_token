@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    command:  bash -c "python manage.py makemigrations && 
+              python manage.py migrate &&
+              python manage.py runserver 0.0.0.0:8000 "
+    ports:
+      - 8000:8000
+    environment:
+      - DJANGO_SETTINGS_MODULE=shift.settings
+    volumes:
+      - .:/usr/src/shift/
+    env_file:
+      - ./.env
+#
+#volumes:
+#  db:
+#    driver: local
