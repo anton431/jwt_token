@@ -7,5 +7,7 @@ class HelloView(APIView):
     permission_classes = (IsAuthenticated,)
 
     def get(self, request):
+        username = request.user.username
+        print(username)
         content = {'message': 'Hello, World!'}
-        return Response(content)
+        return Response({username: content})
